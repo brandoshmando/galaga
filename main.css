@@ -1,8 +1,27 @@
 /* Wrapper */
-#wrapper {
+html {
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+#page-wrap {
   height: 100%;
   width: 100%;
+  background-color: #aa0000;
+
 }
+#game-wrap {
+  height: 500px;
+  width: 700px;
+  border: 1px solid black;
+  margin: 30px auto;
+  background-color: white;
+}
+
 
 
 

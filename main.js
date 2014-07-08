@@ -1,3 +1,97 @@
+//Game JS
+$('document').ready(function(){
+var ship = new Ship().render();
+
+  function Ship(){
+    this.x = 445
+    this.y = 490
+    this.render = function(){
+      this.$me =$('<div id="ship"><img src="galaga.png" alt="http://www.quickmeme.com/meme/3ugwv5"></div>')
+      .css('left', this.x)
+      .css('top', this.y)
+      .css('position', 'absolute');
+      $('#game-wrap').append(this.$me)
+    };
+  };
+
+
+  $('window').on('keydown', function(ev){
+    if (ev.keyCode === 65){
+      ship.animate({
+        left: "-= 5"
+      })
+    }else if(ev.keyCode === 68){
+      left: "+= 5"
+    };
+  });
+})
+
+
+
+
+
+
+
+
+
+
+
+
+  $('window').on('keydown', function(ev){
+    if (ev.keyCode === 65){
+      ship.animate({
+        left: "-= 5"
+      })
+    }else if(ev.keyCode === 68){
+      left: "+= 5"
+    };
+  });
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Cirlcle 1
 
 // $('document').ready(function(){
