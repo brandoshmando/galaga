@@ -1,9 +1,9 @@
 //Game JS
-$('document').ready(function(){
-var ship = new Ship().render();
+$(document).ready(function(){
+  var ship = new Ship().render();
 
   function Ship(){
-    this.x = 445
+    this.x = 525
     this.y = 490
     this.render = function(){
       this.$me =$('<div id="ship"><img src="galaga.png" alt="http://www.quickmeme.com/meme/3ugwv5"></div>')
@@ -15,38 +15,83 @@ var ship = new Ship().render();
   };
 
 
-  $('window').on('keydown', function(ev){
-    if (ev.keyCode === 65){
-      ship.animate({
-        left: "-= 5"
-      })
-    }else if(ev.keyCode === 68){
-      left: "+= 5"
+  $(document).keydown(function(ev){
+    console.log("triggered");
+    switch(ev.which){
+      case 65:
+        $('#ship').animate({left: "-=500"});
+        break;
+      case 68:
+        $('#ship').animate({left: "+=500"});
+        break;
     };
   });
-})
-
-
-
-
-
-
-
-
-
-
-
-
-  $('window').on('keydown', function(ev){
-    if (ev.keyCode === 65){
-      ship.animate({
-        left: "-= 5"
-      })
-    }else if(ev.keyCode === 68){
-      left: "+= 5"
+  $(document).keyup(function(ev){
+    switch(ev.which){
+      case 65:
+        $('#ship').animate().stop(true)
+        break;
+      case 68:
+        $('#ship').animate().stop(true)
+        break;
     };
   });
-})
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   setInterval(moveShip, 1000); //Checks keys every 2 miliseconds to replicate held down key
+//   var keys = {};
+// //Pushes depressed key into keys and sets to true
+//   $( document ).keydown(function(ev){
+//   keys[ev.keyCode] = true;
+//   console.log('pressed!')
+//   });
+// //Removes same key when key is released
+//   $( document ).keyup(function(ev){
+//   delete keys[ev.keyCode];
+//   });
+
+// //Moves ship using keys object
+//   function moveShip(){
+//     console.log('movin...')
+//     for (var direction in keys){
+//       // if (!keys.hasOwnProperty(direction)){ //Stops from comparing to empty object.
+//         console.log('made it')
+//         if (direction  == 65) {
+//           $('#ship').animate({left: "-=5"}, 0);
+//         }if (direction  == 68) {
+//           $('#ship').animate({left: "-=5"}, 0);
+//         };
+//       };
+//     // };
+//   };
+// })
 
 
 
@@ -82,16 +127,16 @@ var ship = new Ship().render();
 
 
 
-
-
-
-
-
-
-
-
-
-
+//   $('window').on('keydown', function(ev){
+//     if (ev.keyCode === 65){
+//       ship.animate({
+//         left: "-= 5"
+//       })
+//     }else if(ev.keyCode === 68){
+//       left: "+= 5"
+//     };
+//   });
+// })
 // Cirlcle 1
 
 // $('document').ready(function(){
