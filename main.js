@@ -14,6 +14,22 @@ $(document).ready(function(){
     };
   };
 
+ function Laser(){
+    this.x = ship.position().left
+    this.y = 490
+    this.height = 10
+    this.fire = function(){
+      this.$me = $('<div id="laser></div>')
+      .css('left', this.x)
+      .css('top', this.y)
+      .css('height', this.height)
+      .css('border', '1px solid red')
+      $('game-wrap').append(this.$me)
+      for (i=0; i<100; i++){
+        this.$me.animate({top: "+=100"})
+      };
+    };
+  };
 
   $(document).keydown(function(ev){
     console.log("triggered");
@@ -26,6 +42,7 @@ $(document).ready(function(){
         break;
     };
   });
+
   $(document).keyup(function(ev){
     switch(ev.which){
       case 65:
