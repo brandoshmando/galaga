@@ -3,13 +3,13 @@ $(document).ready(function(){
   var ship = new Ship().render();
 
   function Ship(){
-    this.x = 525
-    this.y = 510
+    this.x = 300
+    this.y = -50
     this.render = function(){
       this.$me =$('<div id="ship"><img src="galaga.png" alt="http://www.quickmeme.com/meme/3ugwv5"></div>')
       .css('left', this.x)
       .css('top', this.y)
-      .css('position', 'absolute');
+      .css('position', 'relative');
       console.log(this.$me)
       $('#game-wrap').append(this.$me)
     };
@@ -42,11 +42,11 @@ $(document).ready(function(){
         break;
       case 87:
         // new Laser().fire();
-        laser = $('<div></div>')
+        laser = $('<div class="laser"></div>')
         .css("height", "5px")
         .css("width", "0px")
         .css("border", "1px solid red")
-        .css("left", $('#ship').position().left + 14)
+        .css("left", $('#ship').position().left + 24)
         .css("top", "500px")
         .css("position", "absolute")
         $('#game-wrap').append(laser)
