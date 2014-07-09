@@ -35,10 +35,10 @@ $(document).ready(function(){
     console.log(ev.which)
     switch(ev.which){
       case 65:
-        $('#ship').animate({left: "-=400"});
+        $('#ship').animate({left: "-=5000"}, {duration: 3000});
         break;
       case 68:
-        $('#ship').animate({left: "+=400"});
+        $('#ship').animate({left: "+=5000"}, {duration: 3000});
         break;
       case 87:
         // new Laser().fire();
