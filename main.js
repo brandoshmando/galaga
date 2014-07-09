@@ -4,7 +4,7 @@ $(document).ready(function(){
 
   function Ship(){
     this.x = 525
-    this.y = 474
+    this.y = 510
     this.render = function(){
       this.$me =$('<div id="ship"><img src="galaga.png" alt="http://www.quickmeme.com/meme/3ugwv5"></div>')
       .css('left', this.x)
@@ -47,12 +47,12 @@ $(document).ready(function(){
         .css("width", "0px")
         .css("border", "1px solid red")
         .css("left", $('#ship').position().left + 14)
-        .css("top", "464px")
+        .css("top", "500px")
         .css("position", "absolute")
         $('#game-wrap').append(laser)
         console.log(laser)
-        laser.animate({top: "-=474"}, {duration: 400}, {complete: function(){
-          $(this).remove
+        laser.animate({top: "-=510"}, {duration: 200}, {complete: function(){
+          $(this).hide();
           }});
         break;
     };
