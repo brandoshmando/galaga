@@ -9,17 +9,17 @@ body {
   padding: 0;
   background-color: #aa0000;
 }
-#page-wrap {
+/*#page-wrap {
   height: 30em;
   width: 70%;
 
   margin: 30px auto;
-}
+}*/
 #game-wrap {
-  height: 100%;
-  width: 100%;
-
-  margin: 0px auto;
+  height: 500px;
+  width: 700px;
+  border: 1px solid black;
+  margin: 30px auto;
   background-color: white;
 }
 #ship {

@@ -15,17 +15,33 @@ $(document).ready(function(){
     };
   };
 
+  // function Laser(){
+  //   this.x = $('#ship').position().left + 14
+  //   this.y = $('#ship').position().top
+  //   this.fire = function(){
+  //     this.$me = $('<div></div>')
+  //     .css('height', '5px')
+  //     .css('width', '0px')
+  //     .css('left', this.x)
+  //     .css('top', this.y)
+  //     .css('border', '1px solid red')
+  //     .css('postion', 'absolute')
+  //     $('#game-wrap').append(this.$me)
+  //   };
+  // };
+
   $(document).keydown(function(ev){
     console.log("triggered");
     console.log(ev.which)
     switch(ev.which){
       case 65:
-        $('#ship').animate({left: "-=500"});
+        $('#ship').animate({left: "-=400"});
         break;
       case 68:
-        $('#ship').animate({left: "+=500"});
+        $('#ship').animate({left: "+=400"});
         break;
       case 87:
+        // new Laser().fire();
         laser = $('<div></div>')
         .css("height", "5px")
         .css("width", "0px")
