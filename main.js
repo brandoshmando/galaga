@@ -10,35 +10,34 @@ $(document).ready(function(){
       .css('left', this.x)
       .css('top', this.y)
       .css('position', 'absolute');
+      console.log(this.$me)
       $('#game-wrap').append(this.$me)
-    };
-  };
-
- function Laser(){
-    this.x = ship.position().left
-    this.y = 490
-    this.height = 10
-    this.fire = function(){
-      this.$me = $('<div id="laser></div>')
-      .css('left', this.x)
-      .css('top', this.y)
-      .css('height', this.height)
-      .css('border', '1px solid red')
-      $('game-wrap').append(this.$me)
-      for (i=0; i<100; i++){
-        this.$me.animate({top: "+=100"})
-      };
     };
   };
 
   $(document).keydown(function(ev){
     console.log("triggered");
+    console.log(ev.which)
     switch(ev.which){
       case 65:
         $('#ship').animate({left: "-=500"});
         break;
       case 68:
         $('#ship').animate({left: "+=500"});
+        break;
+      case 87:
+        laser = $('<div></div>')
+        .css("height", "5px")
+        .css("width", "0px")
+        .css("border", "1px solid red")
+        .css("left", $('#ship').position().left + 14)
+        .css("top", "480px")
+        .css("position", "absolute")
+        $('#game-wrap').append(laser)
+        console.log(laser)
+        laser.animate({top: "-=490"}, {duration: 400}, {complete: function(){
+          $(this).remove
+          }});
         break;
     };
   });
@@ -55,6 +54,41 @@ $(document).ready(function(){
   });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function Laser(){
+ //    this.x = $('#ship').position().left
+ //    this.y = 490
+ //    this.height = 10
+
+ //    this.fire = function(){
+ //      var laser = $('<div id="laser></div>')
+ //      .css('left', this.x)
+ //      .css('top', this.y)
+ //      .css('height', this.height)
+ //      .css('border', '1px solid red')
+ //      .css('position', 'absolute')
+ //      $('game-wrap').append(laser)
+ //      console.log(laser)
+ //      laser.animate({top: "+=1000"})
+ //    };
+ //  };
 
 
 
