@@ -31,8 +31,8 @@ $(document).ready(function(){
   // };
 
   $(document).keydown(function(ev){
-    console.log("triggered");
-    console.log(ev.which)
+    // console.log("triggered");
+    // console.log(ev.which)
     switch(ev.which){
       case 65:
         $('#ship').animate({left: "-=5000"}, {duration: 3000});
@@ -46,11 +46,11 @@ $(document).ready(function(){
         .css("height", "5px")
         .css("width", "0px")
         .css("border", "1px solid red")
-        .css("left", $('#ship').position().left + 24)
+        .css("left", $('#ship').position().left + 14)
         .css("top", "500px")
         .css("position", "absolute")
         $('#game-wrap').append(laser)
-        console.log(laser)
+        // console.log(laser)
         laser.animate({top: "-=510"}, {duration: 200}, {complete: function(){
           $(this).hide();
           }});
@@ -68,7 +68,22 @@ $(document).ready(function(){
         break;
     };
   });
-});
+
+  setInterval(wallCollision, 05);
+
+  function wallCollision(){
+    console.log('Function Called')
+    if ($('#ship').offset().left < $('#game-wrap').offset().left + 12 ){
+      $('#ship').animate().stop(true);
+    };
+    if ($('#ship').offset().left + 30 > $('#game-wrap').offset().left + 690){
+      $('#ship').animate().stop(true);
+    };
+    // if $('.laser').offset().top < $('#game-wrap').offset().top + 5){
+    //   $()
+    // };
+  };
+})
 
 
 
