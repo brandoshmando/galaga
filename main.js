@@ -1,7 +1,9 @@
-//Game JS
+//Instantiates new ship object on page ready
 $(document).ready(function(){
   var ship = new Ship().render();
-
+  new Laser().render();
+  var laserCount = 0
+//Ship Object
   function Ship(){
     this.x = 300
     this.y = -50
@@ -14,22 +16,22 @@ $(document).ready(function(){
       $('#game-wrap').append(this.$me)
     };
   };
-
-  // function Laser(){
-  //   this.x = $('#ship').position().left + 14
-  //   this.y = $('#ship').position().top
-  //   this.fire = function(){
-  //     this.$me = $('<div></div>')
-  //     .css('height', '5px')
-  //     .css('width', '0px')
-  //     .css('left', this.x)
-  //     .css('top', this.y)
-  //     .css('border', '1px solid red')
-  //     .css('postion', 'absolute')
-  //     $('#game-wrap').append(this.$me)
-  //   };
-  // };
-
+//Laser Object
+  function Laser(){
+    this.x = $('#ship').position().left + 14
+    this.y = 450 //$('#ship').position().top
+    this.render = function(){
+      this.$me = $('<div class="laser"></div>')
+      .css('height', '5px')
+      .css('width', '0px')
+      .css('left', this.x)
+      .css('top', this.y)
+      .css('border', '1px solid red')
+      .css('postion', 'absolute')
+      $('#game-wrap').append(this.$me)
+    };
+  };
+//Listens for keydown event and executes code to move ship left and right
   $(document).keydown(function(ev){
     // console.log("triggered");
     // console.log(ev.which)
@@ -52,13 +54,13 @@ $(document).ready(function(){
         .css("position", "absolute")
         $('#game-wrap').append(laser)
         // console.log(laser)
-        laser.animate({top: 0}, {duration: 200}, {complete: function(){
-          $(laser).remove();
-          }});
+        laser.animate({top: 50}, 200, function(){
+          $(this).remove;
+          });
         break;
     };
   });
-
+//Listens for keyup event and executes cod to stop animation
   $(document).keyup(function(ev){
     switch(ev.which){
       case 65:
@@ -69,14 +71,16 @@ $(document).ready(function(){
         break;
     };
   });
-
+// Function to calculate speed of spaceship based on its orientation. This
+// keeps the animation consistent
   function calculateSpeed(direction){
-    var shipPosition = parseInt(window.$('#ship').css('left'))
+    var shipPosition = parseInt(window.$('#ship').css('left'));
     var animationSpeed = 1;
+    var animDur ;
     if (direction === "L") {
-      var animDur = shipPosition / animationSpeed;
+      animDur = shipPosition / animationSpeed;
     } else {
-      var animDur = (700 - 30 - shipPosition) / animationSpeed;
+      animDur = (700 - 30 - shipPosition) / animationSpeed;
     }
     return animDur;
   };
@@ -85,19 +89,7 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//The landfill of misguided code...
 
 
 // function Laser(){
@@ -117,32 +109,6 @@ $(document).ready(function(){
  //      laser.animate({top: "+=1000"})
  //    };
  //  };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //   setInterval(moveShip, 1000); //Checks keys every 2 miliseconds to replicate held down key
 //   var keys = {};
@@ -171,40 +137,6 @@ $(document).ready(function(){
 //     // };
 //   };
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //   $('window').on('keydown', function(ev){
 //     if (ev.keyCode === 65){
